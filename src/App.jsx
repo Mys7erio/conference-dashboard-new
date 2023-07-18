@@ -1,6 +1,9 @@
-import { useState } from 'react'
-import Authentication from './Page Groups/CommonPages/Authenticaion/Authentication.jsx'
-import './App.css'
+import { useState } from "react"
+// import Authentication from './Pages/CommonPages/Authenticaion/Authentication.jsx'
+import Login from "./Pages/Login.jsx"
+import ProtectedRoute from "./Components/ProtectedRoute.jsx"
+import SuperAdminContainer from "./Pages/SuperAdmin/SuperAdminContainer.jsx"
+import "./App.css"
 
 function App() {
   // const [authentication, setAuthentication] = useState({
@@ -11,11 +14,15 @@ function App() {
   // })
 
   // if (!authentication.isAuthenticated) {
-    return (
-      <Authentication /> //<Authentication setAuthentication={setAuthentication}/>
-    )
+  // return <Login />
+  return (
+    <div>
+      <ProtectedRoute>
+        <SuperAdminContainer />
+      </ProtectedRoute>
+    </div>
+  )
   // } else return <div>Page Not Found</div>
-
 }
 
 export default App
