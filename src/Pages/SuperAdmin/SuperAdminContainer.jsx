@@ -2,7 +2,7 @@ import React from 'react'
 
 const SuperAdminContainer = () => {
   return (
-    <div>SuperAdminContainer</div>
+    <h1>Super Admin</h1>
   )
 }
 

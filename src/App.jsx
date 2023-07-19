@@ -1,28 +1,18 @@
-import { useState } from "react"
-// import Authentication from './Pages/CommonPages/Authenticaion/Authentication.jsx'
-import Login from "./Pages/Login.jsx"
-import ProtectedRoute from "./Components/ProtectedRoute.jsx"
-import SuperAdminContainer from "./Pages/SuperAdmin/SuperAdminContainer.jsx"
+import { Navigate } from "react-router-dom"
+import { useAtom, userInfoAtom, accessTokenAtom } from "./auth.js"
+import AppRoutes from "./routes.js"
+
 import "./App.css"
 
 function App() {
-  // const [authentication, setAuthentication] = useState({
-  //   isAuthenticated: false,
-  //   authenticationType: "Not Authenticated",
-  //   token: null,
-  //   Username: "",
-  // })
+  console.log("userInfo", userInfo)
+  console.log("Home: Navigating to -> " + routes[userInfo.role])
 
-  // if (!authentication.isAuthenticated) {
-  // return <Login />
-  return (
-    <div>
-      <ProtectedRoute>
-        <SuperAdminContainer />
-      </ProtectedRoute>
-    </div>
-  )
-  // } else return <div>Page Not Found</div>
+  const [userInfo] = useAtom(userInfoAtom)
+  const [accessToken] = useAtom(accessTokenAtom)
+
+  if (accessToken === "" || !userInfo) return <Navigate to="/login" />
+  else return <Navigate to={AppRoutes[userInfo.role]} />
 }
 
 export default App
