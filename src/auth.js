@@ -1,5 +1,6 @@
 import { atom, useAtom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
+import AppRoutes from "./routes"
 
 const API = "https://cwms-stag-dep.onrender.com"
 
@@ -31,17 +32,28 @@ async function getUserInfo(get) {
 }
 
 
+// Helper function to check if the user is a valid user
+// It simply checks if the user has the Role attribute set on UserInfo
+// It returns true if the role is defined in AppRoutes else false
+async function isUserValid(get) {
+    const userInfo = await get(userInfoAtom)
+    const userValid = Object.keys(AppRoutes).includes(userInfo.role) ? true : false
+    return userValid
+}
+
+
 const accessTokenAtom = atomWithStorage(
     "access_token",
     sessionStorage.getItem("access_token"),
     sessionStorage
 )
 const userInfoAtom = atom(getUserInfo)
+const isUserValidAtom = atom(isUserValid)
 
 // const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
 // const [userInfo, setUserInfo] = useAtom(userInfoAtom)
 
 
 export { authenticate, getUserInfo }
-export { useAtom, accessTokenAtom, userInfoAtom }
+export { useAtom, accessTokenAtom, userInfoAtom, isUserValidAtom }
 // export { userInfo, accessToken, setUserInfo, setAccessToken }
