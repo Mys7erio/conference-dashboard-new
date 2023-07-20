@@ -30,12 +30,12 @@ export default function Login() {
 
   // Run when authentication status changes
   useEffect(() => {
-    isAuthenticated
-      ? console.log(
-          "Authentication Status: Successful Redirecting to " + AppRoutes[userInfo.role]
-        )
-      : console.log("Authentication Status: Failed Redirecting to /login")
-    navigator(AppRoutes[userInfo.role]) // Navigate to user's dashboard
+    if (isAuthenticated) {
+      console.log(
+        "Authentication Status: Successful Redirecting to " + AppRoutes[userInfo.role]
+      )
+      navigator(AppRoutes[userInfo.role]) // Navigate to user's dashboard
+    } else console.log("Authentication Status: Failed")
   }, [isAuthenticated])
 
   if (!isAuthenticated)
