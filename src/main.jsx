@@ -14,7 +14,10 @@ import SuperAdmin from "./Pages/SuperAdmin/SuperAdminContainer.jsx"
 import Coordinator from "./Pages/Coordinator/CoordinatorContainer.jsx"
 import AssociateEditor from "./Pages/AssociateEditor/AssociateEditorContainer.jsx"
 
+import Test from "./Pages/Test.jsx"
 import "./index.css"
+// Creative Tim's Paper Dashboard Styles
+import "./assets/scss/paper-dashboard.scss?v=1.3.1";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -23,6 +26,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/paper-dashboard" element={<Test />} />
+
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
