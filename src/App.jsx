@@ -5,14 +5,16 @@ import AppRoutes from "./routes.js"
 import "./App.css"
 
 function App() {
-  console.log("userInfo", userInfo)
-  console.log("Home: Navigating to -> " + routes[userInfo.role])
+  const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
+  const [userInfo, setUserInfo] = useAtom(userInfoAtom)
 
-  const [userInfo] = useAtom(userInfoAtom)
-  const [accessToken] = useAtom(accessTokenAtom)
-
-  if (accessToken === "" || !userInfo) return <Navigate to="/login" />
-  else return <Navigate to={AppRoutes[userInfo.role]} />
+  if (accessToken === "" || !userInfo) {
+    console.log("Home: Navigating to -> /login")
+    return <Navigate to="/login" />
+  } else {
+    console.log("Home: Navigating to -> " + AppRoutes[userInfo.role])
+    return <Navigate to={AppRoutes[userInfo.role]} />
+  }
 }
 
 export default App

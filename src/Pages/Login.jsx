@@ -34,7 +34,7 @@ export default function Login() {
       ? console.log(
           "Authentication Status: Successful Redirecting to " + AppRoutes[userInfo.role]
         )
-      : console.log("Authentication Status: Successful Redirecting to /login")
+      : console.log("Authentication Status: Failed Redirecting to /login")
     navigator(AppRoutes[userInfo.role]) // Navigate to user's dashboard
   }, [isAuthenticated])
 
