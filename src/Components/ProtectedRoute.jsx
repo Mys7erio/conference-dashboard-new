@@ -26,6 +26,7 @@ export default function ProtectedRoute() {
 
   function verifyRoute() {
     const userOnCorrectPath = location.pathname === AppRoutes[userInfo.role]
+    console.log(userInfo, userOnCorrectPath)
     if (userInfo && !userOnCorrectPath) {
       console.log("You cannot access this page... Redirecting to YOUR dashboard")
       navigate(AppRoutes[userInfo?.role])
