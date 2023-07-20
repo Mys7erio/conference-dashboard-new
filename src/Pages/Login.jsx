@@ -58,6 +58,10 @@ export default function Login() {
         <button type="submit" onClick={(e) => handleLogin(e, username, password)}>
           Login
         </button>
+
+        <button onClick={() => navigator('/paper-dashboard')}>
+          Paper Dashboard Preview
+        </button>
       </form>
     )
 }
