@@ -9,7 +9,7 @@ function App() {
   const [userInfo] = useAtom(userInfoAtom)
   const [isUserValid] = useAtom(isUserValidAtom)
 
-  if (accessToken === "" || !isUserValid) {
+  if (!accessToken || accessToken === "" || !isUserValid) {
     console.log("Home: Navigating to -> /login")
     return <Navigate to="/login" />
   } else {
