@@ -1,0 +1,66 @@
+.sidebar {
+  height: 100vh;
+  color: #ffffff;
+  background-color: #66615b;
+  padding: 1rem 0.5rem;
+}
+
+.sidebar h3 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.sidebar hr {
+  height: 2px;
+  color: #ffffff;
+}
+
+.sidebar .profile-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0px;
+}
+
+.sidebar .profile-info p {
+    margin: 0px;
+}
+
+
+.sidebar .profile-info p {
+  font-size: 1.5rem;
+}
+
+.sidebar .nav-links {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.sidebar .nav-links .nav-link {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+}
+.sidebar .nav-links .nav-link:hover {
+  cursor: pointer;
+  background-color: #7f7c77;
+}
+
+.sidebar .nav-links .nav-link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.sidebar .nav-links .logout {
+  margin-top: 100%;
+}
