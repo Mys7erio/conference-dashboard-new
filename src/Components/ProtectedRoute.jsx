@@ -4,6 +4,7 @@ import AppRoutes from "../routes"
 import { useAtom, accessTokenAtom, userInfoAtom, isUserValidAtom } from "../auth"
 
 export default function ProtectedRoute() {
+  // eslint-disable-next-line no-unused-vars
   const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
   const [userInfo] = useAtom(userInfoAtom)
   const [isUserValid] = useAtom(isUserValidAtom)
@@ -20,7 +21,7 @@ export default function ProtectedRoute() {
   }
 
   // Check if the user can access the current route
-  useEffect(() => verifyRoute(), [location])
+  useEffect(() => verifyRoute(), [location, verifyRoute])
 
   if (!accessToken || accessToken === "" || !isUserValid)
     return <Navigate to="/login" />

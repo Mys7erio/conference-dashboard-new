@@ -5,7 +5,7 @@ import AppRoutes from "./routes.js"
 import "./App.css"
 
 function App() {
-  const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
+  const [accessToken] = useAtom(accessTokenAtom)
   const [userInfo] = useAtom(userInfoAtom)
   const [isUserValid] = useAtom(isUserValidAtom)
 

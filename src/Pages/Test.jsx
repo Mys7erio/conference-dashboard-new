@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 // reactstrap components
 import {
   Button,
