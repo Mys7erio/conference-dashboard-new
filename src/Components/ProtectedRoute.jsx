@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Outlet, Navigate, useLocation, useNavigate } from "react-router-dom"
 import AppRoutes from "../routes"
 import { useAtom, accessTokenAtom, userInfoAtom, isUserValidAtom } from "../auth"
+import { Suspense } from "react"
 
 export default function ProtectedRoute() {
   const [accessToken, setAccessToken] = useAtom(accessTokenAtom)
@@ -22,7 +23,9 @@ export default function ProtectedRoute() {
   // Check if the user can access the current route
   useEffect(() => verifyRoute(), [location])
 
-  if (!accessToken || accessToken === "" || !isUserValid)
-    return <Navigate to="/login" />
-  else return <Outlet />
+  return (
+    <Suspense fallback={<h1>ProtectedRoute loading...</h1>}>
+      {!isUserValid ? <Navigate to="/login" /> : <Outlet />}
+    </Suspense>
+  )
 }

@@ -24,13 +24,13 @@ export default function Login() {
       : console.log("Authentication Failed")
   }
 
-  // Run when authentication status changes
+  // Run effect when authentication status changes
   useEffect(() => {
     if (isUserValid) {
-      console.log(
-        "Authentication Status: Successful Redirecting to " + AppRoutes[userInfo.role]
-      )
-      navigator(AppRoutes[userInfo.role]) // Navigate to user's dashboard
+      const userDashboard = AppRoutes[userInfo.role]
+      console.log(`Authentication Status: Successful Redirecting to ${userDashboard}`)
+      // Navigate to user's dashboard
+      navigator(userDashboard)
     } else console.log("Authentication Status: Failed")
   }, [isUserValid])
 
@@ -59,7 +59,7 @@ export default function Login() {
           Login
         </button>
 
-        <button onClick={() => navigator('/paper-dashboard')}>
+        <button onClick={() => navigator("/paper-dashboard")}>
           Paper Dashboard Preview
         </button>
       </form>

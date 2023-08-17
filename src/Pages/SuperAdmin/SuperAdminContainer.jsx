@@ -2,12 +2,13 @@ import React from "react"
 import { Row, Col, Container } from "reactstrap"
 
 import Sidebar from "../../Components/Sidebar"
+import { SuperAdminRoutes } from "../../routes"
 
 const SuperAdminContainer = () => {
   return (
     <Container fluid>
       <Row>
-        <Sidebar />
+        <Sidebar routes={SuperAdminRoutes} />
         {/* <Col>Column One Of Twelve</Col>
         <Col>Column TWo Of Twelve</Col> */}
         <Col>Column Three Of Twelve</Col>
